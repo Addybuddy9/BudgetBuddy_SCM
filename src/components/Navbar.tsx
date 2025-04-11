@@ -8,7 +8,7 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
   return (
-    <nav className={w-full ${isScrolled ? 'fixed top-0 bg-white shadow-md' : 'absolute'} z-50 transition-all duration-300}>
+    <nav className={`w-full ${isScrolled ? 'fixed top-0 bg-white shadow-md' : 'absolute'} z-50 transition-all duration-300`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center space-x-2">
