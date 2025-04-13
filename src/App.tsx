@@ -19,7 +19,7 @@ function App() {
       
       <main className="pt-16">
         <Routes>
-          {/* <Route path="/" element={<Home />} /> */}
+          
         </Routes>
       </main>
     </div>
