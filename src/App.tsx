@@ -20,7 +20,7 @@ function App() {
       <main className="pt-16">
       <Navbar isScrolled={isScrolled} />
         <Routes>
-          {/* <Route path="/" element={<Home />} /> */}
+          
         </Routes>
       </main>
     </div>
