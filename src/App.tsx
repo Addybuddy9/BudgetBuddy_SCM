@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Jobs from './pages/Jobs';
 import Footer from './components/Footer';
+import Budget from './pages/Budget';
 import Marketplace from './pages/Marketplace';
 import AddJob from './pages/AddJob';
 
@@ -26,6 +27,7 @@ function App() {
       <Navbar isScrolled={isScrolled} />
         <Routes>
         <Route path="/add-job" element={<AddJob />} />
+        <Route path="/budget" element={<Budget />} />
         </Routes>
       
       </main>
