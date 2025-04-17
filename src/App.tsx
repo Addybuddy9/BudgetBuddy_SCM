@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Jobs from './pages/Jobs';
 import Footer from './components/Footer';
 import Marketplace from './pages/Marketplace';
+import AddJob from './pages/AddJob';
 
 
 function App() {
@@ -24,10 +25,11 @@ function App() {
       <main className="pt-16">
       <Navbar isScrolled={isScrolled} />
         <Routes>
-          
+        <Route path="/add-job" element={<AddJob />} />
         </Routes>
-        <Footer />
+      
       </main>
+      <Footer />
     </div>
   );
 }
