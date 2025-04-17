@@ -22,7 +22,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      
+        
       <main className="pt-16">
       <Navbar isScrolled={isScrolled} />
         <Routes>
