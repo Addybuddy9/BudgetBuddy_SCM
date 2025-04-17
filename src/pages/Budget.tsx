@@ -137,7 +137,27 @@ const Budget = () => {
           </form>
         </div>
 
-        
+        <div>
+          <h2 className="text-2xl font-semibold mb-4">Budget Goals</h2>
+          <div className="bg-white p-6 rounded-lg shadow-md">
+            {goals.map((goal) => (
+              <div key={goal.category} className="mb-4">
+                <div className="flex justify-between items-center mb-2">
+                  <span className="font-medium">{goal.category}</span>
+                  <span className="text-sm text-gray-600">
+                    ${goal.current} / ${goal.limit}
+                  </span>
+                </div>
+                <div className="w-full bg-gray-200 rounded-full h-2.5">
+                  <div
+                    className="bg-indigo-600 h-2.5 rounded-full"
+                    style={{ width: `${(goal.current / goal.limit) * 100}%` }}
+                  ></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
