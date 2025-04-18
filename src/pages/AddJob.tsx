@@ -150,6 +150,51 @@ const AddJob = () => {
               onChange={(e) => setFormData({ ...formData, requirements: e.target.value })}
             />
           </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Responsibilities (one per line)
+            </label>
+            <textarea
+              required
+              rows={4}
+              className="w-full px-4 py-2 border rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+              value={formData.responsibilities}
+              onChange={(e) => setFormData({ ...formData, responsibilities: e.target.value })}
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Schedule
+            </label>
+            <input
+              type="text"
+              required
+              placeholder="e.g., Flexible, 10-15 hours per week"
+              className="w-full px-4 py-2 border rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+              value={formData.schedule}
+              onChange={(e) => setFormData({ ...formData, schedule: e.target.value })}
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Benefits (one per line)
+            </label>
+            <textarea
+              rows={4}
+              className="w-full px-4 py-2 border rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+              value={formData.benefits}
+              onChange={(e) => setFormData({ ...formData, benefits: e.target.value })}
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="w-full bg-indigo-600 text-white py-3 px-6 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+          >
+            Post Job
+          </button>
         </form>
       </div>
     </div>
