@@ -205,6 +205,68 @@ const sampleJobs: Job[] = [
       'Flexible hours'
     ]
   },
+  {
+    id: '7',
+    title: 'Dining Hall Assistant',
+    company: 'Campus Dining Services',
+    location: 'On Campus',
+    type: 'Part-time',
+    salary: '$12/hour + meals',
+    description: 'Help with food preparation, serving, and maintaining cleanliness in the dining hall...',
+    postedDate: '2024-02-09',
+    requirements: [
+      'Team player attitude',
+      'Food handling knowledge (preferred)',
+      'Willing to work weekends',
+      'Strong hygiene practices',
+      'Punctual'
+    ],
+    responsibilities: [
+      'Serve food to students and staff',
+      'Clean dining areas and utensils',
+      'Help with meal prep',
+      'Stock supplies and ingredients',
+      'Follow safety and cleanliness standards'
+    ],
+    schedule: 'Morning and evening shifts available',
+    benefits: [
+      'Free meals during shifts',
+      'Team atmosphere',
+      'Introductory kitchen training',
+      'Resume booster'
+    ]
+  },
+  {
+    id: '8',
+    title: 'Social Media Intern',
+    company: 'Student Affairs Office',
+    location: 'Remote / Hybrid',
+    type: 'Internship',
+    salary: '$13/hour',
+    description: 'Create content, manage social media platforms, and assist with student engagement initiatives...',
+    postedDate: '2024-02-08',
+    requirements: [
+      'Experience using social media platforms',
+      'Strong writing and creativity',
+      'Organized and deadline-oriented',
+      'Knowledge of student trends',
+      'Basic video editing (preferred)'
+    ],
+    responsibilities: [
+      'Plan and schedule posts across platforms',
+      'Engage with student comments and messages',
+      'Collaborate on campaign strategies',
+      'Analyze performance metrics',
+      'Create graphics or short videos'
+    ],
+    schedule: '10 hours/week, hybrid flexibility',
+    benefits: [
+      'Hands-on marketing experience',
+      'Work from home flexibility',
+      'Exposure to university communications',
+      'Portfolio development'
+    ]
+  }
 ];
 
 const Jobs = () => {
