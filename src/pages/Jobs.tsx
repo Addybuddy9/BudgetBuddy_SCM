@@ -112,6 +112,37 @@ const sampleJobs: Job[] = [
       'Resume-building skills'
     ]
   },
+  {
+    id: '4',
+    title: 'Research Assistant',
+    company: 'Biology Department',
+    location: 'On Campus',
+    type: 'Part-time',
+    salary: '$17/hour',
+    description: 'Assist professors with laboratory research, data entry, and maintaining lab safety protocols...',
+    postedDate: '2024-02-12',
+    requirements: [
+      'Background in biology or related field',
+      'Detail-oriented',
+      'Experience with lab equipment (preferred)',
+      'Reliable and punctual',
+      'Strong academic record'
+    ],
+    responsibilities: [
+      'Set up and clean lab equipment',
+      'Collect and log experiment data',
+      'Conduct literature reviews',
+      'Assist in experiment preparations',
+      'Maintain lab inventory'
+    ],
+    schedule: '10-20 hours/week depending on project',
+    benefits: [
+      'Academic research experience',
+      'Opportunity to co-author papers',
+      'Lab safety training',
+      'Graduate program recommendation potential'
+    ]
+  },
 ];
 
 const Jobs = () => {
