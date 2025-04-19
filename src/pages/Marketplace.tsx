@@ -60,6 +60,33 @@ const sampleProducts: Product[] = [
   },
   {
     id: '6',
+    title: 'Gaming Keyboard',
+    price: 3225.00,
+    description: 'The 64MP + 2MP dual rear camera setup captures detailed photos, while the 16MP front camera is perfect for selfies. With a 5000 mAh battery and 67W fast charging support, you can stay connected all day long.',
+    image: 'https://blogassets.airtel.in/wp-content/uploads/2024/10/2100184_P6YTO90-1.jpg',
+    seller: 'Addy U.',
+    condition: 'Good'
+  },
+  {
+    id: '7',
+    title: 'Gaming Mouse',
+    price: 25.00,
+    description: 'The 64MP + 2MP dual rear camera setup captures detailed photos, while the 16MP front camera is perfect for selfies. With a 5000 mAh battery and 67W fast charging support, you can stay connected all day long.',
+    image: 'https://blogassets.airtel.in/wp-content/uploads/2024/10/2100184_P6YTO90-1.jpg',
+    seller: 'Addy U.',
+    condition: 'Good'
+  },
+  {
+    id: '8',
+    title: '.',
+    price: 25.00,
+    description: 'The 64MP + 2MP dual rear camera setup captures detailed photos, while the 16MP front camera is perfect for selfies. With a 5000 mAh battery and 67W fast charging support, you can stay connected all day long.',
+    image: 'https://blogassets.airtel.in/wp-content/uploads/2024/10/2100184_P6YTO90-1.jpg',
+    seller: 'Addy U.',
+    condition: 'Good'
+  },
+  {
+    id: '9',
     title: ' OnePlus Nord CE 4 Lite 5G',
     price: 25.00,
     description: 'The 64MP + 2MP dual rear camera setup captures detailed photos, while the 16MP front camera is perfect for selfies. With a 5000 mAh battery and 67W fast charging support, you can stay connected all day long.',
@@ -67,6 +94,16 @@ const sampleProducts: Product[] = [
     seller: 'Addy U.',
     condition: 'Good'
   },
+  {
+    id: '10',
+    title: ' OnePlus Nord CE 4 Lite 5G',
+    price: 25.00,
+    description: 'The 64MP + 2MP dual rear camera setup captures detailed photos, while the 16MP front camera is perfect for selfies. With a 5000 mAh battery and 67W fast charging support, you can stay connected all day long.',
+    image: 'https://blogassets.airtel.in/wp-content/uploads/2024/10/2100184_P6YTO90-1.jpg',
+    seller: 'Addy U.',
+    condition: 'Good'
+  },
+
 ];
 
 const Marketplace = () => {
