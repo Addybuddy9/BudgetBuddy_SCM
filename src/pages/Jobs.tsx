@@ -81,6 +81,37 @@ const sampleJobs: Job[] = [
       'Recommendation letter opportunities'
     ]
   },
+  {
+    id: '3',
+    title: 'IT Help Desk Assistant',
+    company: 'University IT Department',
+    location: 'On Campus',
+    type: 'Part-time',
+    salary: '$16/hour',
+    description: 'Provide technical support to students and staff, troubleshoot hardware and software issues...',
+    postedDate: '2024-02-10',
+    requirements: [
+      'Basic knowledge of computers and networking',
+      'Problem-solving skills',
+      'Effective communication',
+      'Previous IT support experience (preferred)',
+      'Willingness to learn'
+    ],
+    responsibilities: [
+      'Respond to help desk tickets',
+      'Assist with software installations',
+      'Diagnose hardware issues',
+      'Document solutions in the ticketing system',
+      'Support classroom technology setups'
+    ],
+    schedule: 'Weekdays 9 AM - 5 PM (shifts available)',
+    benefits: [
+      'Hands-on IT experience',
+      'Training and mentorship',
+      'Campus recognition',
+      'Resume-building skills'
+    ]
+  },
 ];
 
 const Jobs = () => {
