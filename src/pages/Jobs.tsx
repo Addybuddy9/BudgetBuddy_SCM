@@ -12,7 +12,11 @@ interface Job {
   description: string;
   postedDate: string;
   requirements: string[];
+  responsibilities?: string[];
+  schedule?: string;
+  benefits?: string[];
 }
+
 
 const sampleJobs: Job[] = [
   {
@@ -22,9 +26,29 @@ const sampleJobs: Job[] = [
     location: 'On Campus',
     type: 'Part-time',
     salary: '$15/hour',
-    description: 'Assist with library operations, help students find resources, and maintain book organization.',
+    description: 'We are seeking a dedicated student assistant to join our library team...',
     postedDate: '2024-02-15',
-    requirements: ['Current student', 'Good organizational skills', 'Customer service experience']
+    requirements: [
+      'Current student status',
+      'Good organizational skills',
+      'Customer service experience',
+      'Ability to work 10-15 hours per week',
+      'Knowledge of library systems (preferred)'
+    ],
+    responsibilities: [
+      'Assist students and faculty in locating resources',
+      'Maintain organization of library materials',
+      'Process book returns and shelve materials',
+      'Monitor and maintain study areas',
+      'Provide basic technical support for library computers'
+    ],
+    schedule: 'Flexible, 10-15 hours per week',
+    benefits: [
+      'Flexible scheduling around classes',
+      'Valuable work experience',
+      'Access to library resources',
+      'Professional development opportunities'
+    ]
   },
   {
     id: '2',
@@ -33,11 +57,30 @@ const sampleJobs: Job[] = [
     location: 'On Campus',
     type: 'Part-time',
     salary: '$14/hour',
-    description: 'Lead campus tours for prospective students and their families.',
+    description: 'Join our team to lead engaging and informative campus tours for prospective students...',
     postedDate: '2024-02-14',
-    requirements: ['Excellent communication skills', 'Knowledge of campus', 'Minimum 2.5 GPA']
+    requirements: [
+      'Excellent communication skills',
+      'Knowledge of campus layout and history',
+      'Minimum 2.5 GPA',
+      'Comfortable speaking in front of groups',
+      'Punctual and reliable'
+    ],
+    responsibilities: [
+      'Conduct tours for prospective students and families',
+      'Answer questions about campus life and academics',
+      'Represent the university positively',
+      'Coordinate with Admissions staff',
+      'Assist with special events'
+    ],
+    schedule: 'Weekdays & weekends, flexible hours',
+    benefits: [
+      'Public speaking experience',
+      'Networking with university staff',
+      'Branded merchandise',
+      'Recommendation letter opportunities'
+    ]
   },
-  // Add 8 more sample jobs here...
 ];
 
 const Jobs = () => {
