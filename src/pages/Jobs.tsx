@@ -143,6 +143,68 @@ const sampleJobs: Job[] = [
       'Graduate program recommendation potential'
     ]
   },
+  {
+    id: '5',
+    title: 'Student Graphic Designer',
+    company: 'Campus Marketing',
+    location: 'Remote',
+    type: 'Part-time',
+    salary: '$18/hour',
+    description: 'Design digital and print materials for university campaigns and events...',
+    postedDate: '2024-02-13',
+    requirements: [
+      'Experience with Adobe Creative Suite',
+      'Creative mindset',
+      'Portfolio of previous work',
+      'Time management skills',
+      'Collaborative spirit'
+    ],
+    responsibilities: [
+      'Create posters, flyers, and social media graphics',
+      'Attend virtual team meetings',
+      'Take feedback and revise designs',
+      'Ensure brand guidelines are followed',
+      'Work on multiple projects concurrently'
+    ],
+    schedule: 'Remote, 5-10 hours per week',
+    benefits: [
+      'Real-world design experience',
+      'Flexible work schedule',
+      'Showcase work on official platforms',
+      'Letters of recommendation'
+    ]
+  },
+  {
+    id: '6',
+    title: 'Fitness Center Assistant',
+    company: 'Campus Recreation',
+    location: 'On Campus',
+    type: 'Part-time',
+    salary: '$13/hour',
+    description: 'Ensure a safe and clean environment in the fitness center and assist members...',
+    postedDate: '2024-02-11',
+    requirements: [
+      'Friendly and approachable',
+      'Basic knowledge of fitness equipment',
+      'Current CPR certification (preferred)',
+      'Punctual and dependable',
+      'Physically fit'
+    ],
+    responsibilities: [
+      'Monitor gym areas',
+      'Sanitize equipment and surfaces',
+      'Check-in patrons',
+      'Report equipment malfunctions',
+      'Provide basic assistance to users'
+    ],
+    schedule: 'Evenings and weekends preferred',
+    benefits: [
+      'Free gym membership',
+      'Team environment',
+      'Health and safety training',
+      'Flexible hours'
+    ]
+  },
 ];
 
 const Jobs = () => {
