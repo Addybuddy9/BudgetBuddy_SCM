@@ -13,7 +13,7 @@ interface BudgetGoal {
   category: string;
   limit: number;
   current: number;
-}     
+}
 
 const Budget = () => {
   const [totalBudget, setTotalBudget] = useState<number>(1000);
@@ -157,6 +157,10 @@ const Budget = () => {
               </div>
             ))}
           </div>
+          <button className="mt-16 ml-24 bg-indigo-600 text-white px-8 py-2 rounded-lg shadow-md hover:bg-indigo-700 transition duration-300">
+            Check your Budget
+          </button>
+
         </div>
       </div>
     </div>
