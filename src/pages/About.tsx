@@ -36,6 +36,14 @@ const About = () => {
             Set and track your financial goals throughout your academic journey.
           </p>
         </div>
+        <div className="text-center p-6">
+          <BookOpen className="h-12 w-12 text-indigo-600 mx-auto mb-4" />
+          <h3 className="text-xl font-semibold mb-2">Educational Resources</h3>
+          <p className="text-gray-600">
+            Access financial education materials tailored for college students.
+          </p>
+        </div>
+      </div>
 
       </div>
     </div>
