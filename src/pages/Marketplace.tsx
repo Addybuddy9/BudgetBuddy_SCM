@@ -70,7 +70,7 @@ const sampleProducts: Product[] = [
   {
     id: '7',
     title: 'Gaming Mouse',
-    price: 25.00,
+    price: 225.00,
     description: 'The 64MP + 2MP dual rear camera setup captures detailed photos, while the 16MP front camera is perfect for selfies. With a 5000 mAh battery and 67W fast charging support, you can stay connected all day long.',
     image: 'https://blogassets.airtel.in/wp-content/uploads/2024/10/2100184_P6YTO90-1.jpg',
     seller: 'Addy U.',
@@ -78,28 +78,28 @@ const sampleProducts: Product[] = [
   },
   {
     id: '8',
-    title: '.',
-    price: 25.00,
-    description: 'The 64MP + 2MP dual rear camera setup captures detailed photos, while the 16MP front camera is perfect for selfies. With a 5000 mAh battery and 67W fast charging support, you can stay connected all day long.',
-    image: 'https://blogassets.airtel.in/wp-content/uploads/2024/10/2100184_P6YTO90-1.jpg',
+    title: 'Headphones',
+    price: 925.00,
+    description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit.lorem ipsum dolor sit amet, consectetur adipiscing elit.lorem ipsum dolor sit amet, consectetur adipiscing elit.lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    image: 'https://i5.walmartimages.com/asr/f61f2bc7-0a77-4a57-aa03-8f901db4c06f.9a92b992f4d03b02b17356e3aee015a9.jpeg',
     seller: 'Addy U.',
     condition: 'Good'
   },
   {
     id: '9',
-    title: ' OnePlus Nord CE 4 Lite 5G',
-    price: 25.00,
-    description: 'The 64MP + 2MP dual rear camera setup captures detailed photos, while the 16MP front camera is perfect for selfies. With a 5000 mAh battery and 67W fast charging support, you can stay connected all day long.',
-    image: 'https://blogassets.airtel.in/wp-content/uploads/2024/10/2100184_P6YTO90-1.jpg',
+    title: 'Green Soul Beast Gaming Chair',
+    price: 525.00,
+    description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit.lorem ipsum dolor sit amet, consectetur adipiscing elit.lorem ipsum dolor sit amet, consectetur adipiscing elit.lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    image: 'https://m.media-amazon.com/images/I/71S6O6fJMDL._AC_.jpg',
     seller: 'Addy U.',
     condition: 'Good'
   },
   {
     id: '10',
-    title: ' OnePlus Nord CE 4 Lite 5G',
+    title: 'Zebronics ZEB-NC9000',
     price: 25.00,
-    description: 'The 64MP + 2MP dual rear camera setup captures detailed photos, while the 16MP front camera is perfect for selfies. With a 5000 mAh battery and 67W fast charging support, you can stay connected all day long.',
-    image: 'https://blogassets.airtel.in/wp-content/uploads/2024/10/2100184_P6YTO90-1.jpg',
+    description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit.lorem ipsum dolor sit amet, consectetur adipiscing elit.lorem ipsum dolor sit amet, consectetur adipiscing elit.lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    image: 'https://zebronics.com/cdn/shop/products/ZEB-NC9000-pic1.jpg?v=1621063840&width=1200',
     seller: 'Addy U.',
     condition: 'Good'
   },
