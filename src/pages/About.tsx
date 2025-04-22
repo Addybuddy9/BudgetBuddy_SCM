@@ -45,6 +45,25 @@ const About = () => {
         </div>
       </div>
 
+      
+      <div className="bg-indigo-50 rounded-lg p-8 mb-16">
+        <h2 className="text-3xl font-bold mb-8 text-center">Our Story</h2>
+        <div className="max-w-3xl mx-auto">
+          <p className="text-gray-700 mb-4">
+            Budget Buddy was created by a team of former college students who understood
+            the financial challenges that come with higher education. We experienced
+            firsthand the need for better financial management tools and a supportive
+            community during our college years.
+          </p>
+          
+          <p className="text-gray-700">
+            Today, we're proud to be making a difference in students' lives by
+            providing the tools and support they need to achieve financial success
+            during their college journey.
+          </p>
+        </div>
+      </div>
+
       </div>
     </div>
   );
