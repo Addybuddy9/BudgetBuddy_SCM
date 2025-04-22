@@ -68,6 +68,19 @@ const About = () => {
         </div>
       </div>
 
+      
+      <div className="text-center mb-16">
+        <h2 className="text-3xl font-bold mb-8">Join Our Community</h2>
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+          Become part of a growing community of financially savvy college students.
+          Start your journey to better financial management today.
+        </p>
+        <button className="bg-indigo-600 text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-indigo-700">
+          Get Started
+        </button>
+      </div>
+
+
       </div>
     </div>
   );
