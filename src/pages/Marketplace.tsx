@@ -60,20 +60,20 @@ const sampleProducts: Product[] = [
   },
   {
     id: '6',
-    title: 'Gaming Keyboard',
+    title: 'EvoFox Warhammer Semi-Mechanical Gaming Keyboard',
     price: 3225.00,
-    description: 'The 64MP + 2MP dual rear camera setup captures detailed photos, while the 16MP front camera is perfect for selfies. With a 5000 mAh battery and 67W fast charging support, you can stay connected all day long.',
-    image: 'https://blogassets.airtel.in/wp-content/uploads/2024/10/2100184_P6YTO90-1.jpg',
-    seller: 'Addy U.',
+    description: 'EvoFox Warhammer is Professional and Full Sized LED Semi-Mechanical Gaming Keyboard with the Floating Keycap Design. Besides, the foldable kickstand can let you set the keyboard to your most comfortable position.',
+    image: 'https://m.media-amazon.com/images/I/51UtqOFkheL._SX679_.jpg',
+    seller: 'Sandy P.',
     condition: 'Good'
   },
   {
     id: '7',
-    title: 'Gaming Mouse',
+    title: 'Gaming Mouse RGB LED USB Wired Optical Laser Game Mice For PC Laptop Computer',
     price: 225.00,
     description: 'The 64MP + 2MP dual rear camera setup captures detailed photos, while the 16MP front camera is perfect for selfies. With a 5000 mAh battery and 67W fast charging support, you can stay connected all day long.',
-    image: 'https://blogassets.airtel.in/wp-content/uploads/2024/10/2100184_P6YTO90-1.jpg',
-    seller: 'Addy U.',
+    image: 'https://i.ebayimg.com/images/g/3N4AAOSw5AFhsvZi/s-l1600.webp',
+    seller: 'Kalli R.',
     condition: 'Good'
   },
   {
