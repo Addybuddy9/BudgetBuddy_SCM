@@ -79,7 +79,19 @@ const About = () => {
           Get Started
         </button>
       </div>
-
+        
+      <div className="bg-gray-50 rounded-lg p-8">
+        <h2 className="text-3xl font-bold mb-8 text-center">Contact Us</h2>
+        <div className="max-w-xl mx-auto">
+          <p className="text-center text-gray-600 mb-8">
+            Have questions or suggestions? We'd love to hear from you!
+          </p>
+          <div className="text-center">
+            <a href="mailto:support@budgetbuddy.com" className="text-indigo-600 hover:text-indigo-700">
+              support@budgetbuddy.com
+            </a>
+          </div>
+        </div>
 
       </div>
     </div>
