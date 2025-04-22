@@ -55,7 +55,11 @@ const About = () => {
             firsthand the need for better financial management tools and a supportive
             community during our college years.
           </p>
-          
+          <p className="text-gray-700 mb-4">
+            What started as a simple idea has grown into a comprehensive platform
+            that helps thousands of students manage their finances, find affordable
+            resources, and discover part-time job opportunities.
+          </p>
           <p className="text-gray-700">
             Today, we're proud to be making a difference in students' lives by
             providing the tools and support they need to achieve financial success
