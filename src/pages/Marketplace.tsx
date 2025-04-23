@@ -102,8 +102,7 @@ const sampleProducts: Product[] = [
     image: 'https://zebronics.com/cdn/shop/products/ZEB-NC9000-pic1.jpg?v=1621063840&width=1200',
     seller: 'Addy U.',
     condition: 'Good'
-  },
-
+  }
 ];
 
 const Marketplace = () => {
