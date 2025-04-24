@@ -1,23 +1,59 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, DollarSign, User, Tag, Calendar } from 'lucide-react';
 
+// Import the sample products data from Marketplace
+import { sampleProducts } from '../pages/Marketplace';
+
 const ProductDetails = () => {
   const { id } = useParams();
+  const [product, setProduct] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
 
-  // Mock product data - in a real app, this would come from your database
-  const product = {
-    id: '1',
-    title: 'Textbook - Introduction to Psychology',
-    price: 45.99,
-    description: 'Like new condition, 8th edition. Perfect for PSY101. Includes online access code (unused). Minor highlighting in first two chapters only.',
-    image: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80',
-    seller: 'John D.',
-    condition: 'Like New',
-    postedDate: '2024-02-15',
-    category: 'Textbooks',
-    location: 'Campus Library'
-  };
+  useEffect(() => {
+    // Find the product with matching ID from sampleProducts
+    const foundProduct = sampleProducts.find(p => p.id === id);
+    
+    // In a real app, this would be an API call to fetch product details
+    setTimeout(() => {
+      setProduct(foundProduct || null);
+      setLoading(false);
+    }, 300); // Simulate a slight delay like an API call would have
+  }, [id]);
+
+  if (loading) {
+    return (
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="flex items-center justify-center h-64">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-indigo-600 mx-auto"></div>
+            <p className="mt-4 text-gray-600">Loading product details...</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (!product) {
+    return (
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <Link to="/marketplace" className="flex items-center text-indigo-600 mb-6">
+          <ArrowLeft className="h-5 w-5 mr-2" />
+          Back to Marketplace
+        </Link>
+        <div className="bg-white rounded-lg shadow-lg p-8 text-center">
+          <h1 className="text-2xl font-bold mb-4">Product Not Found</h1>
+          <p className="text-gray-600 mb-6">The product you're looking for doesn't exist or has been removed.</p>
+          <Link 
+            to="/marketplace" 
+            className="bg-indigo-600 text-white px-6 py-2 rounded-md hover:bg-indigo-700"
+          >
+            Browse Marketplace
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -56,7 +92,7 @@ const ProductDetails = () => {
               </div>
               <div className="flex items-center">
                 <Calendar className="h-5 w-5 text-gray-500 mr-2" />
-                <span>Posted: {product.postedDate}</span>
+                <span>Posted: {new Date().toLocaleDateString()}</span>
               </div>
             </div>
 
