@@ -56,7 +56,44 @@ const BudgetPlanner = () => {
             <h3 className="text-xl font-semibold mb-6">Enter Your Budget Details</h3>
             
             <div className="space-y-4">
-
+              <div>
+                <label className="block text-white/70 mb-2">Monthly Income</label>
+                <Input 
+                  type="number" 
+                  name="income"
+                  value={formData.income}
+                  onChange={handleChange}
+                  className="bg-white/5 border-white/10 text-white"
+                  placeholder="Enter amount"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-white/70 mb-2">Rent</label>
+                <Input 
+                  type="number" 
+                  name="rent"
+                  value={formData.rent}
+                  onChange={handleChange}
+                  className="bg-white/5 border-white/10 text-white"
+                  placeholder="Enter amount"
+                />
+              </div>
+              
+             
+              
+              <div>
+                <label className="block text-white/70 mb-2">Transportation</label>
+                <Input 
+                  type="number" 
+                  name="transportation"
+                  value={formData.transportation}
+                  onChange={handleChange}
+                  className="bg-white/5 border-white/10 text-white"
+                  placeholder="Enter amount"
+                />
+              </div>
+              
               <div>
                 <label className="block text-white/70 mb-2">Savings</label>
                 <Input 
@@ -97,7 +134,6 @@ const BudgetPlanner = () => {
             </div>
           </div>
           
-         
         </div>
       </section>
     </div>
