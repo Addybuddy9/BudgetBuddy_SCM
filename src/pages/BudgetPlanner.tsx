@@ -80,7 +80,29 @@ const BudgetPlanner = () => {
                 />
               </div>
               
-             
+              <div>
+                <label className="block text-white/70 mb-2">Utilities</label>
+                <Input 
+                  type="number" 
+                  name="utilities"
+                  value={formData.utilities}
+                  onChange={handleChange}
+                  className="bg-white/5 border-white/10 text-white"
+                  placeholder="Enter amount"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-white/70 mb-2">Groceries</label>
+                <Input 
+                  type="number" 
+                  name="groceries"
+                  value={formData.groceries}
+                  onChange={handleChange}
+                  className="bg-white/5 border-white/10 text-white"
+                  placeholder="Enter amount"
+                />
+              </div>
               
               <div>
                 <label className="block text-white/70 mb-2">Transportation</label>
@@ -134,6 +156,36 @@ const BudgetPlanner = () => {
             </div>
           </div>
           
+          <div className="saheli-card">
+            <h3 className="text-xl font-semibold mb-6">Your Budget Visualization</h3>
+            
+         
+            
+            {hasData && (
+              <div className="mt-6 pt-6 border-t border-white/10">
+                <div className="flex justify-between items-center">
+                  <span className="text-white/70">Total Monthly Expenses:</span>
+                  <span className="text-white font-semibold">₹{totalExpenses}</span>
+                </div>
+                
+                {formData.income && (
+                  <>
+                    <div className="flex justify-between items-center mt-2">
+                      <span className="text-white/70">Income:</span>
+                      <span className="text-white font-semibold">₹{formData.income}</span>
+                    </div>
+                    
+                    <div className="flex justify-between items-center mt-2">
+                      <span className="text-white/70">Remaining:</span>
+                      <span className={`font-semibold ${Number(formData.income) - totalExpenses >= 0 ? 'text-green-500' : 'text-red-500'}`}>
+                        ₹{Number(formData.income) - totalExpenses}
+                      </span>
+                    </div>
+                  </>
+                )}
+              </div>
+            )}
+          </div>
         </div>
       </section>
     </div>
