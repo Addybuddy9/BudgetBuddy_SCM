@@ -50,7 +50,56 @@ const BudgetPlanner = () => {
         subtitle="Visualize and manage your monthly budget effectively"
       />
       
-     
+      <section className="py-12 saheli-container">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="saheli-card">
+            <h3 className="text-xl font-semibold mb-6">Enter Your Budget Details</h3>
+            
+            <div className="space-y-4">
+
+              <div>
+                <label className="block text-white/70 mb-2">Savings</label>
+                <Input 
+                  type="number" 
+                  name="savings"
+                  value={formData.savings}
+                  onChange={handleChange}
+                  className="bg-white/5 border-white/10 text-white"
+                  placeholder="Enter amount"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-white/70 mb-2">Investments</label>
+                <Input 
+                  type="number" 
+                  name="investments"
+                  value={formData.investments}
+                  onChange={handleChange}
+                  className="bg-white/5 border-white/10 text-white"
+                  placeholder="Enter amount"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-white/70 mb-2">Entertainment</label>
+                <Input 
+                  type="number" 
+                  name="entertainment"
+                  value={formData.entertainment}
+                  onChange={handleChange}
+                  className="bg-white/5 border-white/10 text-white"
+                  placeholder="Enter amount"
+                />
+              </div>
+              
+              <Button className="saheli-btn w-full mt-4">Update Budget</Button>
+            </div>
+          </div>
+          
+         
+        </div>
+      </section>
     </div>
   );
 };
