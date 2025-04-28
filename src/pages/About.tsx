@@ -79,20 +79,27 @@ const About = () => {
           Get Started
         </button>
       </div>
-        
-      <div className="bg-gray-50 rounded-lg p-8">
-        <h2 className="text-3xl font-bold mb-8 text-center">Contact Us</h2>
-        <div className="max-w-xl mx-auto">
-          <p className="text-center text-gray-600 mb-8">
-            Have questions or suggestions? We'd love to hear from you!
-          </p>
-          <div className="text-center">
-            <a href="mailto:support@budgetbuddy.com" className="text-indigo-600 hover:text-indigo-700">
-              support@budgetbuddy.com
-            </a>
-          </div>
-        </div>
-
+      <div className="bg-white rounded-xl shadow-lg p-12 md:p-16">
+  <div className="text-center">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-14 h-14 text-indigo-600 mx-auto mb-6">
+      <path fillRule="evenodd" d="M12 1.5a5.25 5.25 0 00-5.25 5.25V12a5.25 5.25 0 005.25 5.25h.75a.75.75 0 010 1.5h-.75A6.75 6.75 0 015.25 12V6.75A6.75 6.75 0 0112 0h.75a.75.75 0 010 1.5h-.75zM12 10.5a3 3 0 100-6 3 3 0 000 6zm3.75 1.5a.75.75 0 01.75-.75h2.25a.75.75 0 010 1.5H16.5a.75.75 0 01-.75-.75zm-9 0a.75.75 0 01.75-.75h2.25a.75.75 0 010 1.5H6.75a.75.75 0 01-.75-.75zM15 13.5a.75.75 0 01.75-.75h2.25a.75.75 0 010 1.5H15.75a.75.75 0 01-.75-.75zm-6 0a.75.75 0 01.75-.75h2.25a.75.75 0 010 1.5H9.75a.75.75 0 01-.75-.75zM18 16.5a.75.75 0 01.75-.75h.75a.75.75 0 000-1.5h-.75a.75.75 0 01-.75.75v2.25a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5h1.5v-.75a.75.75 0 01.75-.75h.75a.75.75 0 000 1.5h-.75v.75a.75.75 0 01.75.75zm-9 0a.75.75 0 01.75-.75h.75a.75.75 0 000-1.5h-.75a.75.75 0 01-.75.75v2.25a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5h1.5v-.75a.75.75 0 01.75-.75h.75a.75.75 0 000 1.5h-.75v.75a.75.75 0 01.75.75z" clipRule="evenodd" />
+    </svg>
+    <h2 className="text-3xl font-semibold mb-4 text-indigo-700">We'd Love to Hear From You!</h2>
+    <p className="text-lg text-gray-600 mb-8">
+      Have questions, feedback, or just want to chat? Our inbox is always open. Reach out and let us know what's on your mind.
+    </p>
+    <div className="mt-6">
+      <a href="mailto:support@budgetbuddy.com" className="inline-flex items-center bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-md py-3 px-6 transition duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 mr-2">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.913a2.25 2.25 0 01-1.07-1.916V6.75" />
+        </svg>
+        Email Us
+      </a>
+    </div>
+    {/* Optional: Add a phone number or other contact methods here */}
+    {/* <p className="mt-4 text-sm text-gray-500">Or call us at: +1 (555) 123-4567</p> */}
+  </div>
+</div>
       </div>
     </div>
   );
