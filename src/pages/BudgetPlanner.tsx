@@ -159,7 +159,36 @@ const BudgetPlanner = () => {
           <div className="saheli-card">
             <h3 className="text-xl font-semibold mb-6">Your Budget Visualization</h3>
             
-         
+            {hasData ? (
+              <div className="h-80">
+                <ResponsiveContainer width="100%" height="100%">
+                  <PieChart>
+                    <Pie
+                      data={data}
+                      cx="50%"
+                      cy="50%"
+                      labelLine={true}
+                      outerRadius={80}
+                      fill="#8884d8"
+                      dataKey="value"
+                      label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
+                    >
+                      {data.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                      ))}
+                    </Pie>
+                    <Tooltip formatter={(value) => `₹${value}`} />
+                    <Legend />
+                  </PieChart>
+                </ResponsiveContainer>
+              </div>
+            ) : (
+              <div className="h-80 flex items-center justify-center">
+                <p className="text-white/50 text-center">
+                  Enter your budget details on the left to see your visualization
+                </p>
+              </div>
+            )}
             
             {hasData && (
               <div className="mt-6 pt-6 border-t border-white/10">
