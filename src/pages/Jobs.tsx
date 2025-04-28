@@ -12,7 +12,11 @@ interface Job {
   description: string;
   postedDate: string;
   requirements: string[];
+  responsibilities?: string[];
+  schedule?: string;
+  benefits?: string[];
 }
+
 
 const sampleJobs: Job[] = [
   {
@@ -22,9 +26,29 @@ const sampleJobs: Job[] = [
     location: 'On Campus',
     type: 'Part-time',
     salary: '$15/hour',
-    description: 'Assist with library operations, help students find resources, and maintain book organization.',
+    description: 'We are seeking a dedicated student assistant to join our library team...',
     postedDate: '2024-02-15',
-    requirements: ['Current student', 'Good organizational skills', 'Customer service experience']
+    requirements: [
+      'Current student status',
+      'Good organizational skills',
+      'Customer service experience',
+      'Ability to work 10-15 hours per week',
+      'Knowledge of library systems (preferred)'
+    ],
+    responsibilities: [
+      'Assist students and faculty in locating resources',
+      'Maintain organization of library materials',
+      'Process book returns and shelve materials',
+      'Monitor and maintain study areas',
+      'Provide basic technical support for library computers'
+    ],
+    schedule: 'Flexible, 10-15 hours per week',
+    benefits: [
+      'Flexible scheduling around classes',
+      'Valuable work experience',
+      'Access to library resources',
+      'Professional development opportunities'
+    ]
   },
   {
     id: '2',
@@ -33,11 +57,216 @@ const sampleJobs: Job[] = [
     location: 'On Campus',
     type: 'Part-time',
     salary: '$14/hour',
-    description: 'Lead campus tours for prospective students and their families.',
+    description: 'Join our team to lead engaging and informative campus tours for prospective students...',
     postedDate: '2024-02-14',
-    requirements: ['Excellent communication skills', 'Knowledge of campus', 'Minimum 2.5 GPA']
+    requirements: [
+      'Excellent communication skills',
+      'Knowledge of campus layout and history',
+      'Minimum 2.5 GPA',
+      'Comfortable speaking in front of groups',
+      'Punctual and reliable'
+    ],
+    responsibilities: [
+      'Conduct tours for prospective students and families',
+      'Answer questions about campus life and academics',
+      'Represent the university positively',
+      'Coordinate with Admissions staff',
+      'Assist with special events'
+    ],
+    schedule: 'Weekdays & weekends, flexible hours',
+    benefits: [
+      'Public speaking experience',
+      'Networking with university staff',
+      'Branded merchandise',
+      'Recommendation letter opportunities'
+    ]
   },
-  // Add 8 more sample jobs here...
+  {
+    id: '3',
+    title: 'IT Help Desk Assistant',
+    company: 'University IT Department',
+    location: 'On Campus',
+    type: 'Part-time',
+    salary: '$16/hour',
+    description: 'Provide technical support to students and staff, troubleshoot hardware and software issues...',
+    postedDate: '2024-02-10',
+    requirements: [
+      'Basic knowledge of computers and networking',
+      'Problem-solving skills',
+      'Effective communication',
+      'Previous IT support experience (preferred)',
+      'Willingness to learn'
+    ],
+    responsibilities: [
+      'Respond to help desk tickets',
+      'Assist with software installations',
+      'Diagnose hardware issues',
+      'Document solutions in the ticketing system',
+      'Support classroom technology setups'
+    ],
+    schedule: 'Weekdays 9 AM - 5 PM (shifts available)',
+    benefits: [
+      'Hands-on IT experience',
+      'Training and mentorship',
+      'Campus recognition',
+      'Resume-building skills'
+    ]
+  },
+  {
+    id: '4',
+    title: 'Research Assistant',
+    company: 'Biology Department',
+    location: 'On Campus',
+    type: 'Part-time',
+    salary: '$17/hour',
+    description: 'Assist professors with laboratory research, data entry, and maintaining lab safety protocols...',
+    postedDate: '2024-02-12',
+    requirements: [
+      'Background in biology or related field',
+      'Detail-oriented',
+      'Experience with lab equipment (preferred)',
+      'Reliable and punctual',
+      'Strong academic record'
+    ],
+    responsibilities: [
+      'Set up and clean lab equipment',
+      'Collect and log experiment data',
+      'Conduct literature reviews',
+      'Assist in experiment preparations',
+      'Maintain lab inventory'
+    ],
+    schedule: '10-20 hours/week depending on project',
+    benefits: [
+      'Academic research experience',
+      'Opportunity to co-author papers',
+      'Lab safety training',
+      'Graduate program recommendation potential'
+    ]
+  },
+  {
+    id: '5',
+    title: 'Student Graphic Designer',
+    company: 'Campus Marketing',
+    location: 'Remote',
+    type: 'Part-time',
+    salary: '$18/hour',
+    description: 'Design digital and print materials for university campaigns and events...',
+    postedDate: '2024-02-13',
+    requirements: [
+      'Experience with Adobe Creative Suite',
+      'Creative mindset',
+      'Portfolio of previous work',
+      'Time management skills',
+      'Collaborative spirit'
+    ],
+    responsibilities: [
+      'Create posters, flyers, and social media graphics',
+      'Attend virtual team meetings',
+      'Take feedback and revise designs',
+      'Ensure brand guidelines are followed',
+      'Work on multiple projects concurrently'
+    ],
+    schedule: 'Remote, 5-10 hours per week',
+    benefits: [
+      'Real-world design experience',
+      'Flexible work schedule',
+      'Showcase work on official platforms',
+      'Letters of recommendation'
+    ]
+  },
+  {
+    id: '6',
+    title: 'Fitness Center Assistant',
+    company: 'Campus Recreation',
+    location: 'On Campus',
+    type: 'Part-time',
+    salary: '$13/hour',
+    description: 'Ensure a safe and clean environment in the fitness center and assist members...',
+    postedDate: '2024-02-11',
+    requirements: [
+      'Friendly and approachable',
+      'Basic knowledge of fitness equipment',
+      'Current CPR certification (preferred)',
+      'Punctual and dependable',
+      'Physically fit'
+    ],
+    responsibilities: [
+      'Monitor gym areas',
+      'Sanitize equipment and surfaces',
+      'Check-in patrons',
+      'Report equipment malfunctions',
+      'Provide basic assistance to users'
+    ],
+    schedule: 'Evenings and weekends preferred',
+    benefits: [
+      'Free gym membership',
+      'Team environment',
+      'Health and safety training',
+      'Flexible hours'
+    ]
+  },
+  {
+    id: '7',
+    title: 'Dining Hall Assistant',
+    company: 'Campus Dining Services',
+    location: 'On Campus',
+    type: 'Part-time',
+    salary: '$12/hour + meals',
+    description: 'Help with food preparation, serving, and maintaining cleanliness in the dining hall...',
+    postedDate: '2024-02-09',
+    requirements: [
+      'Team player attitude',
+      'Food handling knowledge (preferred)',
+      'Willing to work weekends',
+      'Strong hygiene practices',
+      'Punctual'
+    ],
+    responsibilities: [
+      'Serve food to students and staff',
+      'Clean dining areas and utensils',
+      'Help with meal prep',
+      'Stock supplies and ingredients',
+      'Follow safety and cleanliness standards'
+    ],
+    schedule: 'Morning and evening shifts available',
+    benefits: [
+      'Free meals during shifts',
+      'Team atmosphere',
+      'Introductory kitchen training',
+      'Resume booster'
+    ]
+  },
+  {
+    id: '8',
+    title: 'Social Media Intern',
+    company: 'Student Affairs Office',
+    location: 'Remote / Hybrid',
+    type: 'Internship',
+    salary: '$13/hour',
+    description: 'Create content, manage social media platforms, and assist with student engagement initiatives...',
+    postedDate: '2024-02-08',
+    requirements: [
+      'Experience using social media platforms',
+      'Strong writing and creativity',
+      'Organized and deadline-oriented',
+      'Knowledge of student trends',
+      'Basic video editing (preferred)'
+    ],
+    responsibilities: [
+      'Plan and schedule posts across platforms',
+      'Engage with student comments and messages',
+      'Collaborate on campaign strategies',
+      'Analyze performance metrics',
+      'Create graphics or short videos'
+    ],
+    schedule: '10 hours/week, hybrid flexibility',
+    benefits: [
+      'Hands-on marketing experience',
+      'Work from home flexibility',
+      'Exposure to university communications',
+      'Portfolio development'
+    ]
+  }
 ];
 
 const Jobs = () => {
