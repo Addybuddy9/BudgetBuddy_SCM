@@ -231,18 +231,6 @@ const Marketplace = () => {
           )}
         </>
       )}
-
-      {/* Loading indicator at the bottom while loading */}
-      {loading && (
-        <div className="flex justify-center mt-8">
-          <div className="animate-bounce flex">
-            <span className="sr-only">Loading...</span>
-            <div className="h-2 w-2 bg-indigo-600 rounded-full mr-1"></div>
-            <div className="h-2 w-2 bg-indigo-600 rounded-full mr-1 animate-bounce delay-100"></div>
-            <div className="h-2 w-2 bg-indigo-600 rounded-full animate-bounce delay-200"></div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
