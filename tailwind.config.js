@@ -11,7 +11,9 @@ export default {
         'slide-in': 'slideIn 0.5s ease-out forwards',
         'bounce-in': 'bounceIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards',
         'swing': 'swing 2s ease-in-out infinite',
-        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'blob': 'blob 7s infinite',
+        'ping-slow': 'ping 3s cubic-bezier(0.4, 0, 0.6, 1) infinite'
       },
       keyframes: {
         fadeIn: {
@@ -43,8 +45,32 @@ export default {
         swing: {
           '0%, 100%': { transform: 'rotate(-3deg)' },
           '50%': { transform: 'rotate(3deg)' },
+        },
+        blob: {
+          '0%': {
+            transform: 'scale(1) translate(0px, 0px)'
+          },
+          '33%': {
+            transform: 'scale(1.1) translate(30px, -30px)'
+          },
+          '66%': {
+            transform: 'scale(0.9) translate(-30px, 30px)'
+          },
+          '100%': {
+            transform: 'scale(1) translate(0px, 0px)'
+          }
         }
       },
+      transitionDelay: {
+        '2000': '2000ms',
+        '4000': '4000ms',
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      },
+      zIndex: {
+        '-10': '-10',
+      }
     },
   },
   plugins: [],
