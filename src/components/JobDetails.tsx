@@ -57,51 +57,56 @@ const JobDetails = () => {
                 {job.location}
               </div>
               <div className="flex items-center">
-              <Clock className="h-5 w-5 mr-2" />
-              {job.type}
-            </div>
-            <div className="flex items-center">
-              <DollarSign className="h-5 w-5 mr-2" />
-              {job.salary}
-            </div>
-            <div className="flex items-center">
-              <Calendar className="h-5 w-5 mr-2" />
-              Posted: {job.postedDate}
-            </div>
+                <Clock className="h-5 w-5 mr-2" />
+                {job.type}
+              </div>
+              <div className="flex items-center">
+                <DollarSign className="h-5 w-5 mr-2" />
+                {job.salary}
+              </div>
+              <div className="flex items-center">
+                <Calendar className="h-5 w-5 mr-2" />
+                Posted: {job.postedDate}
+              </div>
             </div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-          <div>
-            <h2 className="text-xl font-semibold mb-4">Description</h2>
-            <p className="text-gray-600 mb-6">{job.description}</p>
+            <div>
+              <h2 className="text-xl font-semibold mb-4">Description</h2>
+              <p className="text-gray-600 mb-6">{job.description}</p>
 
-            <h2 className="text-xl font-semibold mb-4">Requirements</h2>
-            <ul className="list-disc list-inside text-gray-600 mb-6">
-              {job.requirements.map((req, index) => (
-                <li key={index} className="mb-2">{req}</li>
-              ))}
-            </ul>
+              <h2 className="text-xl font-semibold mb-4">Requirements</h2>
+              <ul className="list-disc list-inside text-gray-600 mb-6">
+                {job.requirements.map((req, index) => (
+                  <li key={index} className="mb-2">{req}</li>
+                ))}
+              </ul>
 
-            <h2 className="text-xl font-semibold mb-4">Schedule</h2>
-            <p className="text-gray-600 mb-6">{job.schedule}</p>
-          </div>
-          <div>
-            <h2 className="text-xl font-semibold mb-4">Responsibilities</h2>
-            <ul className="list-disc list-inside text-gray-600 mb-6">
-              {job.responsibilities.map((resp, index) => (
-                <li key={index} className="mb-2">{resp}</li>
-              ))}
-            </ul>
+              <h2 className="text-xl font-semibold mb-4">Schedule</h2>
+              <p className="text-gray-600 mb-6">{job.schedule}</p>
+            </div>
+            <div>
+              <h2 className="text-xl font-semibold mb-4">Responsibilities</h2>
+              <ul className="list-disc list-inside text-gray-600 mb-6">
+                {job.responsibilities.map((resp, index) => (
+                  <li key={index} className="mb-2">{resp}</li>
+                ))}
+              </ul>
 
-            <h2 className="text-xl font-semibold mb-4">Benefits</h2>
-            <ul className="list-disc list-inside text-gray-600 mb-6">
-              {job.benefits.map((benefit, index) => (
-                <li key={index} className="mb-2">{benefit}</li>
-              ))}
-            </ul>
+              <h2 className="text-xl font-semibold mb-4">Benefits</h2>
+              <ul className="list-disc list-inside text-gray-600 mb-6">
+                {job.benefits.map((benefit, index) => (
+                  <li key={index} className="mb-2">{benefit}</li>
+                ))}
+              </ul>
+            </div>
           </div>
-          </div>
+        </div>
+        <div className="mt-8">
+          <button className="w-full bg-indigo-600 text-white py-3 px-6 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+            Apply Now
+          </button>
         </div>
       </div>
     </div>
