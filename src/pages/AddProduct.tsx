@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Upload, ArrowLeft } from 'lucide-react';
 
@@ -12,6 +12,18 @@ const AddProduct = () => {
     description: '',
     image: null as File | null
   });
+  
+  // Animation states
+  const [pageLoaded, setPageLoaded] = useState(false);
+
+  useEffect(() => {
+    // Trigger animation after component mounts
+    const timer = setTimeout(() => {
+      setPageLoaded(true);
+    }, 100);
+    
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,48 +39,48 @@ const AddProduct = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className={`max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8 transition-opacity duration-500 ${pageLoaded ? 'opacity-100' : 'opacity-0'}`}>
       <button
         onClick={() => navigate('/marketplace')}
-        className="flex items-center text-indigo-600 mb-6"
+        className={`flex items-center text-indigo-600 mb-6 transition-transform duration-300 hover:-translate-x-1 ${pageLoaded ? 'animate-slide-in' : ''}`}
+        style={{ animationDelay: '100ms' }}
       >
         <ArrowLeft className="h-5 w-5 mr-2" />
         Back to Marketplace
       </button>
 
-      <div className="bg-white rounded-lg shadow-lg p-8">
-        <h1 className="text-3xl font-bold mb-8">List Your Item</h1>
+      <div className={`bg-white rounded-lg shadow-lg p-8 ${pageLoaded ? 'animate-fade-up' : ''}`}>
+        <h1 className={`text-3xl font-bold mb-8 ${pageLoaded ? 'animate-slide-in' : ''}`} 
+             style={{ animationDelay: '200ms' }}>
+          List Your Item
+        </h1>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Title
-            </label>
-            <input
-              type="text"
-              required
-              className="w-full px-4 py-2 border rounded-md focus:ring-indigo-500 focus:border-indigo-500"
-              value={formData.title}
-              onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-            />
-          </div>
+          {[
+            { label: 'Title', type: 'text', value: formData.title, 
+              onChange: (e: React.ChangeEvent<HTMLInputElement>) => setFormData({ ...formData, title: e.target.value }) },
+            { label: 'Price ($)', type: 'number', value: formData.price, min: "0", step: "0.01",
+              onChange: (e: React.ChangeEvent<HTMLInputElement>) => setFormData({ ...formData, price: e.target.value }) }
+          ].map((field, index) => (
+            <div key={field.label} 
+                 className={`${pageLoaded ? 'animate-slide-in' : ''}`} 
+                 style={{ animationDelay: `${300 + index * 100}ms` }}>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                {field.label}
+              </label>
+              <input
+                type={field.type}
+                required
+                min={field.min}
+                step={field.step}
+                className="w-full px-4 py-2 border rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+                value={field.value}
+                onChange={field.onChange}
+              />
+            </div>
+          ))}
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Price ($)
-            </label>
-            <input
-              type="number"
-              required
-              min="0"
-              step="0.01"
-              className="w-full px-4 py-2 border rounded-md focus:ring-indigo-500 focus:border-indigo-500"
-              value={formData.price}
-              onChange={(e) => setFormData({ ...formData, price: e.target.value })}
-            />
-          </div>
-
-          <div>
+          <div className={`${pageLoaded ? 'animate-slide-in' : ''}`} style={{ animationDelay: '500ms' }}>
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Category
             </label>
@@ -87,7 +99,7 @@ const AddProduct = () => {
             </select>
           </div>
 
-          <div>
+          <div className={`${pageLoaded ? 'animate-slide-in' : ''}`} style={{ animationDelay: '600ms' }}>
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Condition
             </label>
@@ -106,7 +118,7 @@ const AddProduct = () => {
             </select>
           </div>
 
-          <div>
+          <div className={`${pageLoaded ? 'animate-slide-in' : ''}`} style={{ animationDelay: '700ms' }}>
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Description
             </label>
@@ -119,13 +131,14 @@ const AddProduct = () => {
             />
           </div>
 
-          <div>
+          <div className={`${pageLoaded ? 'animate-slide-in' : ''}`} style={{ animationDelay: '800ms' }}>
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Images
             </label>
             <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
               <div className="space-y-1 text-center">
-                <Upload className="mx-auto h-12 w-12 text-gray-400" />
+                <Upload className={`mx-auto h-12 w-12 text-gray-400 ${pageLoaded ? 'animate-bounce-in' : ''}`} 
+                        style={{ animationDelay: '900ms' }} />
                 <div className="flex text-sm text-gray-600">
                   <label
                     htmlFor="file-upload"
@@ -152,7 +165,8 @@ const AddProduct = () => {
 
           <button
             type="submit"
-            className="w-full bg-indigo-600 text-white py-3 px-6 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            className={`w-full bg-indigo-600 text-white py-3 px-6 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-all duration-300 ${pageLoaded ? 'animate-slide-in transform hover:scale-[1.02]' : ''}`}
+            style={{ animationDelay: '1000ms' }}
           >
             List Item
           </button>
