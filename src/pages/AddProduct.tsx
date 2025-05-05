@@ -51,3 +51,55 @@ const AddProduct = () => {
               onChange={(e) => setFormData({ ...formData, title: e.target.value })}
             />
           </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Price ($)
+            </label>
+            <input
+              type="number"
+              required
+              min="0"
+              step="0.01"
+              className="w-full px-4 py-2 border rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+              value={formData.price}
+              onChange={(e) => setFormData({ ...formData, price: e.target.value })}
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Category
+            </label>
+            <select
+              required
+              className="w-full px-4 py-2 border rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+              value={formData.category}
+              onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+            >
+              <option value="">Select a category</option>
+              <option value="textbooks">Textbooks</option>
+              <option value="electronics">Electronics</option>
+              <option value="furniture">Furniture</option>
+              <option value="clothing">Clothing</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Condition
+            </label>
+            <select
+              required
+              className="w-full px-4 py-2 border rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+              value={formData.condition}
+              onChange={(e) => setFormData({ ...formData, condition: e.target.value })}
+            >
+              <option value="">Select condition</option>
+              <option value="new">New</option>
+              <option value="like-new">Like New</option>
+              <option value="good">Good</option>
+              <option value="fair">Fair</option>
+              <option value="poor">Poor</option>
+            </select>
+          </div>
