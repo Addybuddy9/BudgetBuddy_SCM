@@ -110,13 +110,19 @@ const Marketplace = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState<Product[]>([]);
+  const [fadeIn, setFadeIn] = useState(false);
 
   useEffect(() => {
     // Simulate loading data from an API
     setLoading(true);
+    setFadeIn(false);
     const timer = setTimeout(() => {
       setProducts(sampleProducts);
       setLoading(false);
+      // Trigger fade-in animation after loading is complete
+      setTimeout(() => {
+        setFadeIn(true);
+      }, 100);
     }, 1500); // 1.5 second delay to show loading state
     
     return () => clearTimeout(timer);
@@ -188,9 +194,17 @@ const Marketplace = () => {
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredProducts.map((product) => (
-                <Link key={product.id} to={`/product/${product.id}`}>
-                  <div className="border rounded-lg overflow-hidden hover:shadow-lg transition-shadow transform hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300">
+              {filteredProducts.map((product, index) => (
+                <Link 
+                  key={product.id} 
+                  to={`/product/${product.id}`}
+                  className={`opacity-0 ${fadeIn ? 'animate-fade-in' : ''}`}
+                  style={{ 
+                    animationDelay: `${index * 100}ms`,
+                    animationFillMode: 'forwards'
+                  }}
+                >
+                  <div className="border rounded-lg overflow-hidden hover:shadow-lg transform hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300">
                     <div className="relative h-48 overflow-hidden">
                       <img
                         src={product.image}
