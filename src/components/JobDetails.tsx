@@ -86,6 +86,21 @@ const JobDetails = () => {
             <h2 className="text-xl font-semibold mb-4">Schedule</h2>
             <p className="text-gray-600 mb-6">{job.schedule}</p>
           </div>
+          <div>
+            <h2 className="text-xl font-semibold mb-4">Responsibilities</h2>
+            <ul className="list-disc list-inside text-gray-600 mb-6">
+              {job.responsibilities.map((resp, index) => (
+                <li key={index} className="mb-2">{resp}</li>
+              ))}
+            </ul>
+
+            <h2 className="text-xl font-semibold mb-4">Benefits</h2>
+            <ul className="list-disc list-inside text-gray-600 mb-6">
+              {job.benefits.map((benefit, index) => (
+                <li key={index} className="mb-2">{benefit}</li>
+              ))}
+            </ul>
+          </div>
           </div>
         </div>
       </div>
