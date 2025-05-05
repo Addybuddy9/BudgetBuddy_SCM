@@ -56,7 +56,36 @@ const JobDetails = () => {
                 <MapPin className="h-5 w-5 mr-2" />
                 {job.location}
               </div>
+              <div className="flex items-center">
+              <Clock className="h-5 w-5 mr-2" />
+              {job.type}
             </div>
+            <div className="flex items-center">
+              <DollarSign className="h-5 w-5 mr-2" />
+              {job.salary}
+            </div>
+            <div className="flex items-center">
+              <Calendar className="h-5 w-5 mr-2" />
+              Posted: {job.postedDate}
+            </div>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+          <div>
+            <h2 className="text-xl font-semibold mb-4">Description</h2>
+            <p className="text-gray-600 mb-6">{job.description}</p>
+
+            <h2 className="text-xl font-semibold mb-4">Requirements</h2>
+            <ul className="list-disc list-inside text-gray-600 mb-6">
+              {job.requirements.map((req, index) => (
+                <li key={index} className="mb-2">{req}</li>
+              ))}
+            </ul>
+
+            <h2 className="text-xl font-semibold mb-4">Schedule</h2>
+            <p className="text-gray-600 mb-6">{job.schedule}</p>
+          </div>
           </div>
         </div>
       </div>
