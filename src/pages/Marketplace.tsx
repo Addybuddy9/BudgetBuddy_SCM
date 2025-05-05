@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ShoppingBag, Search, Plus } from 'lucide-react';
 
-interface Product {
+export interface Product {
   id: string;
   title: string;
   price: number;
@@ -12,7 +12,7 @@ interface Product {
   condition: string;
 }
 
-const sampleProducts: Product[] = [
+export const sampleProducts: Product[] = [
   {
     id: '1',
     title: 'Textbook - Introduction to Psychology',
@@ -63,7 +63,7 @@ const sampleProducts: Product[] = [
     title: 'EvoFox Warhammer Semi-Mechanical Gaming Keyboard',
     price: 3225.00,
     description: 'EvoFox Warhammer is Professional and Full Sized LED Semi-Mechanical Gaming Keyboard with the Floating Keycap Design. Besides, the foldable kickstand can let you set the keyboard to your most comfortable position.',
-    image: 'https://m.media-amazon.com/images/I/51UtqOFkheL._SX679_.jpg',
+    image: 'https://m.media-amazon.com/images/I/61W8YtRGmQL._SX679_.jpg',
     seller: 'Sandy P.',
     condition: 'Good'
   },
@@ -108,9 +108,44 @@ const sampleProducts: Product[] = [
 const Marketplace = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [loading, setLoading] = useState(true);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [fadeIn, setFadeIn] = useState(false);
 
-  const filteredProducts = sampleProducts.filter(product =>
+  useEffect(() => {
+    // Simulate loading data from an API
+    setLoading(true);
+    setFadeIn(false);
+    const timer = setTimeout(() => {
+      setProducts(sampleProducts);
+      setLoading(false);
+      // Trigger fade-in animation after loading is complete
+      setTimeout(() => {
+        setFadeIn(true);
+      }, 100);
+    }, 1500); // 1.5 second delay to show loading state
+    
+    return () => clearTimeout(timer);
+  }, []);
+
+  const filteredProducts = products.filter(product =>
     product.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  // Skeleton loader component
+  const ProductSkeleton = () => (
+    <div className="border rounded-lg overflow-hidden animate-pulse">
+      <div className="w-full h-48 bg-gray-300"></div>
+      <div className="p-4">
+        <div className="h-5 bg-gray-300 rounded w-3/4 mb-4"></div>
+        <div className="h-4 bg-gray-300 rounded w-full mb-2"></div>
+        <div className="h-4 bg-gray-300 rounded w-5/6 mb-4"></div>
+        <div className="flex justify-between items-center">
+          <div className="h-6 bg-gray-300 rounded w-1/4"></div>
+          <div className="h-4 bg-gray-300 rounded w-1/3"></div>
+        </div>
+      </div>
+    </div>
   );
 
   return (
@@ -138,35 +173,76 @@ const Marketplace = () => {
             className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
+            disabled={loading}
           />
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredProducts.map((product) => (
-          <Link key={product.id} to={`/product/${product.id}`}>
-            <div className="border rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-              <img
-                src={product.image}
-                alt={product.title}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-4">
-                <h3 className="text-lg font-semibold mb-2">{product.title}</h3>
-                <p className="text-gray-600 mb-2">{product.description}</p>
-                <div className="flex justify-between items-center">
-                  <span className="text-xl font-bold text-indigo-600">
-                    ${product.price.toFixed(2)}
-                  </span>
-                  <span className="text-sm text-gray-500">
-                    Seller: {product.seller}
-                  </span>
-                </div>
-              </div>
+      {loading ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[...Array(9)].map((_, index) => (
+            <ProductSkeleton key={index} />
+          ))}
+        </div>
+      ) : (
+        <>
+          {filteredProducts.length === 0 ? (
+            <div className="text-center py-12">
+              <ShoppingBag className="h-12 w-12 mx-auto text-gray-400 mb-4" />
+              <h3 className="text-lg font-medium text-gray-900 mb-2">No products found</h3>
+              <p className="text-gray-500">Try adjusting your search term.</p>
             </div>
-          </Link>
-        ))}
-      </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredProducts.map((product, index) => (
+                <Link 
+                  key={product.id} 
+                  to={`/product/${product.id}`}
+                  className={`opacity-0 ${fadeIn ? 'animate-fade-in' : ''}`}
+                  style={{ 
+                    animationDelay: `${index * 100}ms`,
+                    animationFillMode: 'forwards'
+                  }}
+                >
+                  <div className="border rounded-lg overflow-hidden hover:shadow-lg transform hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300">
+                    <div className="relative h-48 overflow-hidden">
+                      <img
+                        src={product.image}
+                        alt={product.title}
+                        className="w-full h-48 object-cover transition-transform duration-500 hover:scale-110"
+                      />
+                    </div>
+                    <div className="p-4">
+                      <h3 className="text-lg font-semibold mb-2">{product.title}</h3>
+                      <p className="text-gray-600 mb-2 line-clamp-2">{product.description}</p>
+                      <div className="flex justify-between items-center">
+                        <span className="text-xl font-bold text-indigo-600">
+                          ${product.price.toFixed(2)}
+                        </span>
+                        <span className="text-sm text-gray-500">
+                          Seller: {product.seller}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          )}
+        </>
+      )}
+
+      {/* Loading indicator at the bottom while loading */}
+      {loading && (
+        <div className="flex justify-center mt-8">
+          <div className="animate-bounce flex">
+            <span className="sr-only">Loading...</span>
+            <div className="h-2 w-2 bg-indigo-600 rounded-full mr-1"></div>
+            <div className="h-2 w-2 bg-indigo-600 rounded-full mr-1 animate-bounce delay-100"></div>
+            <div className="h-2 w-2 bg-indigo-600 rounded-full animate-bounce delay-200"></div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
