@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ShoppingBag, Search, Plus } from 'lucide-react';
+import { ShoppingBag, Search, Plus, ChevronUp } from 'lucide-react';
 
 export interface Product {
   id: string;
@@ -111,6 +111,7 @@ const Marketplace = () => {
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState<Product[]>([]);
   const [fadeIn, setFadeIn] = useState(false);
+  const [scrollVisible, setScrollVisible] = useState(false);
 
   useEffect(() => {
     // Simulate loading data from an API
@@ -127,6 +128,27 @@ const Marketplace = () => {
     
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    // Show/hide scroll to top button based on scroll position
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setScrollVisible(true);
+      } else {
+        setScrollVisible(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
 
   const filteredProducts = products.filter(product =>
     product.title.toLowerCase().includes(searchTerm.toLowerCase())
@@ -148,34 +170,61 @@ const Marketplace = () => {
     </div>
   );
 
+  // Available categories for filtering
+  const categories = [
+    { id: 'all', name: 'All Items' },
+    { id: 'textbooks', name: 'Textbooks' },
+    { id: 'electronics', name: 'Electronics' },
+    { id: 'furniture', name: 'Furniture' },
+    { id: 'clothing', name: 'Clothing' }
+  ];
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div className="flex justify-between items-center mb-8">
+      <div className="flex justify-between items-center mb-8 animate-fade-down">
         <h1 className="text-3xl font-bold flex items-center">
-          <ShoppingBag className="h-8 w-8 mr-2 text-indigo-600" />
+          <ShoppingBag className="h-8 w-8 mr-2 text-indigo-600 animate-swing" />
           Student Marketplace
         </h1>
         <Link
           to="/add-product"
-          className="bg-indigo-600 text-white px-4 py-2 rounded-md flex items-center hover:bg-indigo-700"
+          className="bg-indigo-600 text-white px-4 py-2 rounded-md flex items-center hover:bg-indigo-700 transition-all duration-300 hover:shadow-lg transform hover:scale-105"
         >
           <Plus className="h-5 w-5 mr-1" />
           List Item
         </Link>
       </div>
 
-      <div className="mb-8">
+      <div className="mb-8 animate-fade-right" style={{ animationDelay: '200ms' }}>
         <div className="relative">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
           <input
             type="text"
             placeholder="Search items..."
-            className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-300"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             disabled={loading}
           />
         </div>
+      </div>
+
+      {/* Category filter buttons */}
+      <div className="flex flex-wrap gap-2 mb-6 animate-fade-right" style={{ animationDelay: '400ms' }}>
+        {categories.map((category, index) => (
+          <button
+            key={category.id}
+            onClick={() => setSelectedCategory(category.id)}
+            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 transform hover:scale-105 ${
+              selectedCategory === category.id
+                ? 'bg-indigo-600 text-white shadow-md'
+                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+            }`}
+            style={{ animationDelay: `${500 + index * 100}ms` }}
+          >
+            {category.name}
+          </button>
+        ))}
       </div>
 
       {loading ? (
@@ -187,8 +236,8 @@ const Marketplace = () => {
       ) : (
         <>
           {filteredProducts.length === 0 ? (
-            <div className="text-center py-12">
-              <ShoppingBag className="h-12 w-12 mx-auto text-gray-400 mb-4" />
+            <div className="text-center py-12 animate-fade-up">
+              <ShoppingBag className="h-12 w-12 mx-auto text-gray-400 mb-4 animate-pulse" />
               <h3 className="text-lg font-medium text-gray-900 mb-2">No products found</h3>
               <p className="text-gray-500">Try adjusting your search term.</p>
             </div>
@@ -204,19 +253,27 @@ const Marketplace = () => {
                     animationFillMode: 'forwards'
                   }}
                 >
-                  <div className="border rounded-lg overflow-hidden hover:shadow-lg transform hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300">
+                  <div className="border rounded-lg overflow-hidden hover:shadow-lg transform hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300 group">
                     <div className="relative h-48 overflow-hidden">
                       <img
                         src={product.image}
                         alt={product.title}
-                        className="w-full h-48 object-cover transition-transform duration-500 hover:scale-110"
+                        className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
                       />
+                      <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                        <span className="text-white font-medium px-4 py-2 rounded-full bg-indigo-600 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                          View Details
+                        </span>
+                      </div>
+                      <div className="absolute top-2 right-2 bg-indigo-600 text-white text-xs px-2 py-1 rounded-full animate-pulse-slow">
+                        {product.condition}
+                      </div>
                     </div>
                     <div className="p-4">
-                      <h3 className="text-lg font-semibold mb-2">{product.title}</h3>
+                      <h3 className="text-lg font-semibold mb-2 group-hover:text-indigo-600 transition-colors duration-300">{product.title}</h3>
                       <p className="text-gray-600 mb-2 line-clamp-2">{product.description}</p>
                       <div className="flex justify-between items-center">
-                        <span className="text-xl font-bold text-indigo-600">
+                        <span className="text-xl font-bold text-indigo-600 group-hover:scale-110 transition-transform duration-300 inline-block">
                           ${product.price.toFixed(2)}
                         </span>
                         <span className="text-sm text-gray-500">
@@ -231,6 +288,16 @@ const Marketplace = () => {
           )}
         </>
       )}
+
+      {/* Scroll to top button */}
+      <button 
+        onClick={scrollToTop} 
+        className={`fixed bottom-6 right-6 bg-indigo-600 text-white p-3 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 ${
+          scrollVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
+        }`}
+      >
+        <ChevronUp className="h-6 w-6" />
+      </button>
     </div>
   );
 };
