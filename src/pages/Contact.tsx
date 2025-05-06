@@ -101,3 +101,22 @@ return (
             <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Twitter</a>
           </div>
         </div>
+        // Part 6: Embedded map and component closing
+        <div className="mt-10">
+          <iframe
+            title="Budget Buddy Location"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3648.756793102008!2d90.39043121489133!3d23.874437784532246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xdeadbeefdeadbeef!2sBudget%20Buddy%20HQ!5e0!3m2!1sen!2sin!4v1629899202309"
+            width="100%"
+            height="300"
+            style={{ border: 0 }}
+            loading="lazy"
+            allowFullScreen
+            className="rounded-xl shadow-md"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Contact;
