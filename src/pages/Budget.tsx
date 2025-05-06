@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { DollarSign, PieChart, Target, TrendingUp } from 'lucide-react';
 
 interface Expense {
@@ -16,6 +17,8 @@ interface BudgetGoal {
 }
 
 const Budget = () => {
+  const navigate = useNavigate();
+
   const [totalBudget, setTotalBudget] = useState<number>(1000);
   const [expenses, setExpenses] = useState<Expense[]>([]);
   const [newExpense, setNewExpense] = useState({
@@ -157,10 +160,13 @@ const Budget = () => {
               </div>
             ))}
           </div>
-          <button className="mt-16 ml-24 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-10 py-3 rounded-2xl shadow-lg hover:from-indigo-700 hover:to-purple-700 hover:scale-105 transform transition duration-300 ease-in-out">
-              Check your Budget
-          </button>
 
+          <button
+            className="mt-16 ml-24 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-10 py-3 rounded-2xl shadow-lg hover:from-indigo-700 hover:to-purple-700 hover:scale-105 transform transition duration-300 ease-in-out"
+            onClick={() => navigate('/budget-planner')}
+          >
+            Check your Budget
+          </button>
         </div>
       </div>
     </div>
