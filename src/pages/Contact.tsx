@@ -30,6 +30,8 @@ return (
               <input
                 type="text"
                 id="name"
+                name="name" // Added name attribute
+                placeholder="Enter your full name" // Added placeholder
                 required
                 className="mt-1 block w-full border border-gray-300 rounded-md p-3 focus:ring-blue-500 focus:border-blue-500"
               />
@@ -40,6 +42,8 @@ return (
               <input
                 type="email"
                 id="email"
+                name="email" // Added name attribute
+                placeholder="you@example.com" // Added placeholder
                 required
                 className="mt-1 block w-full border border-gray-300 rounded-md p-3 focus:ring-blue-500 focus:border-blue-500"
               />
