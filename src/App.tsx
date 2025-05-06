@@ -11,6 +11,7 @@ import Login from './pages/Login';
 import ProductDetails from './components/ProductDetails';
 import JobDetails from './components/JobDetails';
 import AddProduct from './pages/AddProduct';
+import BudgetPlanner from "./pages/BudgetPlanner";
 import AddJob from './pages/AddJob';
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/job/:id" element={<JobDetails />} />
           <Route path="/add-product" element={<AddProduct />} />
+          <Route path="/budget-planner" element={<BudgetPlanner />} />
           <Route path="/add-job" element={<AddJob />} />
         </Routes>
       </main>
