@@ -1,9 +1,12 @@
-
 import { useState } from "react";
-import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from "recharts";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import HeroSection from "@/components/HeroSection";
+import {
+  PieChart,
+  Pie,
+  Cell,
+  ResponsiveContainer,
+  Legend,
+  Tooltip,
+} from "recharts";
 
 const COLORS = ['#8B5CF6', '#EF4444', '#F59E0B', '#10B981', '#3B82F6', '#EC4899'];
 
@@ -18,13 +21,12 @@ const BudgetPlanner = () => {
     investments: "",
     entertainment: ""
   });
-  
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
-  
-  // Calculate data for pie chart
+
   const calculateBudgetData = () => {
     const data = [
       { name: 'Rent', value: Number(formData.rent) || 0 },
@@ -35,130 +37,64 @@ const BudgetPlanner = () => {
       { name: 'Investments', value: Number(formData.investments) || 0 },
       { name: 'Entertainment', value: Number(formData.entertainment) || 0 }
     ].filter(item => item.value > 0);
-    
+
     return data;
   };
-  
+
   const data = calculateBudgetData();
   const totalExpenses = data.reduce((sum, item) => sum + item.value, 0);
   const hasData = data.length > 0;
-  
+
   return (
-    <div className="min-h-screen">
-      <HeroSection
-        title="Budget Planner"
-        subtitle="Visualize and manage your monthly budget effectively"
-      />
+    <div className="min-h-screen bg-gray-900 text-white">
       
-      <section className="py-12 saheli-container">
+      {/* Hero Section */}
+      <section className="bg-violet-700 text-white text-center py-12">
+        <h1 className="text-4xl font-bold mb-2">Budget Planner</h1>
+        <p className="text-lg">Visualize and manage your monthly budget effectively</p>
+      </section>
+
+      {/* Main Content */}
+      <section className="py-12 px-6 max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="saheli-card">
+          
+          {/* Budget Form */}
+          <div className="bg-gray-800 rounded-xl p-6 shadow-md">
             <h3 className="text-xl font-semibold mb-6">Enter Your Budget Details</h3>
-            
             <div className="space-y-4">
-              <div>
-                <label className="block text-white/70 mb-2">Monthly Income</label>
-                <Input 
-                  type="number" 
-                  name="income"
-                  value={formData.income}
-                  onChange={handleChange}
-                  className="bg-white/5 border-white/10 text-white"
-                  placeholder="Enter amount"
-                />
-              </div>
-              
-              <div>
-                <label className="block text-white/70 mb-2">Rent</label>
-                <Input 
-                  type="number" 
-                  name="rent"
-                  value={formData.rent}
-                  onChange={handleChange}
-                  className="bg-white/5 border-white/10 text-white"
-                  placeholder="Enter amount"
-                />
-              </div>
-              
-              <div>
-                <label className="block text-white/70 mb-2">Utilities</label>
-                <Input 
-                  type="number" 
-                  name="utilities"
-                  value={formData.utilities}
-                  onChange={handleChange}
-                  className="bg-white/5 border-white/10 text-white"
-                  placeholder="Enter amount"
-                />
-              </div>
-              
-              <div>
-                <label className="block text-white/70 mb-2">Groceries</label>
-                <Input 
-                  type="number" 
-                  name="groceries"
-                  value={formData.groceries}
-                  onChange={handleChange}
-                  className="bg-white/5 border-white/10 text-white"
-                  placeholder="Enter amount"
-                />
-              </div>
-              
-              <div>
-                <label className="block text-white/70 mb-2">Transportation</label>
-                <Input 
-                  type="number" 
-                  name="transportation"
-                  value={formData.transportation}
-                  onChange={handleChange}
-                  className="bg-white/5 border-white/10 text-white"
-                  placeholder="Enter amount"
-                />
-              </div>
-              
-              <div>
-                <label className="block text-white/70 mb-2">Savings</label>
-                <Input 
-                  type="number" 
-                  name="savings"
-                  value={formData.savings}
-                  onChange={handleChange}
-                  className="bg-white/5 border-white/10 text-white"
-                  placeholder="Enter amount"
-                />
-              </div>
-              
-              <div>
-                <label className="block text-white/70 mb-2">Investments</label>
-                <Input 
-                  type="number" 
-                  name="investments"
-                  value={formData.investments}
-                  onChange={handleChange}
-                  className="bg-white/5 border-white/10 text-white"
-                  placeholder="Enter amount"
-                />
-              </div>
-              
-              <div>
-                <label className="block text-white/70 mb-2">Entertainment</label>
-                <Input 
-                  type="number" 
-                  name="entertainment"
-                  value={formData.entertainment}
-                  onChange={handleChange}
-                  className="bg-white/5 border-white/10 text-white"
-                  placeholder="Enter amount"
-                />
-              </div>
-              
-              <Button className="saheli-btn w-full mt-4">Update Budget</Button>
+              {[
+                { label: "Monthly Income", name: "income" },
+                { label: "Rent", name: "rent" },
+                { label: "Utilities", name: "utilities" },
+                { label: "Groceries", name: "groceries" },
+                { label: "Transportation", name: "transportation" },
+                { label: "Savings", name: "savings" },
+                { label: "Investments", name: "investments" },
+                { label: "Entertainment", name: "entertainment" }
+              ].map((field) => (
+                <div key={field.name}>
+                  <label className="block text-white/70 mb-2">{field.label}</label>
+                  <input
+                    type="number"
+                    name={field.name}
+                    value={(formData as any)[field.name]}
+                    onChange={handleChange}
+                    className="w-full px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/50 focus:outline-none"
+                    placeholder="Enter amount"
+                  />
+                </div>
+              ))}
+
+              <button className="mt-4 w-full bg-violet-600 hover:bg-violet-700 text-white font-semibold py-2 px-4 rounded-lg">
+                Update Budget
+              </button>
             </div>
           </div>
-          
-          <div className="saheli-card">
+
+          {/* Budget Chart */}
+          <div className="bg-gray-800 rounded-xl p-6 shadow-md">
             <h3 className="text-xl font-semibold mb-6">Your Budget Visualization</h3>
-            
+
             {hasData ? (
               <div className="h-80">
                 <ResponsiveContainer width="100%" height="100%">
@@ -189,21 +125,21 @@ const BudgetPlanner = () => {
                 </p>
               </div>
             )}
-            
+
             {hasData && (
               <div className="mt-6 pt-6 border-t border-white/10">
                 <div className="flex justify-between items-center">
                   <span className="text-white/70">Total Monthly Expenses:</span>
                   <span className="text-white font-semibold">₹{totalExpenses}</span>
                 </div>
-                
+
                 {formData.income && (
                   <>
                     <div className="flex justify-between items-center mt-2">
                       <span className="text-white/70">Income:</span>
                       <span className="text-white font-semibold">₹{formData.income}</span>
                     </div>
-                    
+
                     <div className="flex justify-between items-center mt-2">
                       <span className="text-white/70">Remaining:</span>
                       <span className={`font-semibold ${Number(formData.income) - totalExpenses >= 0 ? 'text-green-500' : 'text-red-500'}`}>
