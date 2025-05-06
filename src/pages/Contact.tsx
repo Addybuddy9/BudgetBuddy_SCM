@@ -91,3 +91,13 @@ return (
             </button>
           </form>
         )}
+// Part 5: Social links and contact info
+        <div className="mt-10 text-center space-y-2">
+          <p className="text-gray-600">📞 Phone: +91 9876543210</p>
+          <p className="text-gray-600">📧 Email: support@budgetbuddy.com</p>
+          <div className="flex justify-center space-x-4 mt-2">
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="text-pink-500 hover:underline">Instagram</a>
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:underline">LinkedIn</a>
+            <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Twitter</a>
+          </div>
+        </div>
