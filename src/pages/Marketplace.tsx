@@ -59,7 +59,7 @@ export const sampleProducts: Product[] = [
     title: 'Men Watch',
     price: 225.00,
     description: 'WINNER Vintage Engraved Gold Skeleton Mechanical Men Watch Carved Stainless Steel Strap 521',
-    image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwinner-watch.com%2Fcollections%2Fnew-releases%2Fproducts%2Fwinner-vintage-engraved-gold-skeleton-mechanical-men-watch-carved-stainless-steel-strap-521&psig=AOvVaw2wBiUE5XqcuzEXKgeCCGvE&ust=1746602265464000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKDf0symjo0DFQAAAAAdAAAAABAJ',
+    image: 'src/assests/image.png',
     seller: 'Bob T.',
     condition: 'Good',
     category: 'clothing'
