@@ -83,6 +83,8 @@ return (
                 id="message"
                 rows={4}
                 required
+                placeholder="Write your message here..."
+      aria-label="Message"
                 className="mt-1 block w-full border border-gray-300 rounded-md p-3 focus:ring-blue-500 focus:border-blue-500"
               />
             </div>
