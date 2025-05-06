@@ -45,3 +45,49 @@ return (
               />
             </div>
 
+            // Part 4: Phone, subject and message input fields
+            <div>
+              <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Phone Number</label>
+              <input
+                type="tel"
+                id="phone"
+                pattern="[0-9]{10}"
+                placeholder="1234567890"
+                required
+                className="mt-1 block w-full border border-gray-300 rounded-md p-3 focus:ring-blue-500 focus:border-blue-500"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="subject" className="block text-sm font-medium text-gray-700">Subject</label>
+              <select
+                id="subject"
+                required
+                className="mt-1 block w-full border border-gray-300 rounded-md p-3 focus:ring-blue-500 focus:border-blue-500"
+              >
+                <option value="">-- Select Subject --</option>
+                <option value="feedback">Feedback</option>
+                <option value="bug">Report a Bug</option>
+                <option value="suggestion">Suggestion</option>
+                <option value="support">Support Request</option>
+              </select>
+            </div>
+
+            <div>
+              <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
+              <textarea
+                id="message"
+                rows={4}
+                required
+                className="mt-1 block w-full border border-gray-300 rounded-md p-3 focus:ring-blue-500 focus:border-blue-500"
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="w-full bg-blue-600 text-white py-3 px-6 rounded-md hover:bg-blue-700 transition duration-300"
+            >
+              Send Message
+            </button>
+          </form>
+        )}
